@@ -3,11 +3,11 @@ from watson_developer_cloud import VisualRecognitionV3
 
 visual_recognition = VisualRecognitionV3(
     version='2018-03-19',
-    iam_apikey='<IBM API KEY>')
+    iam_apikey='IBM_API_KEY')
 
-with open('./pizza.jpg', 'rb') as images_file:
+with open('./test.jpg', 'rb') as images_file:
     classes = visual_recognition.classify(images_file,threshold='0.6',classifier_ids='food').get_result()
-print(json.dumps(classes, indent=2))
+#print(json.dumps(classes, indent=2))
 
 output_query = classes['images'][0]['classifiers'][0]['classes'][0]['class']
 
@@ -16,14 +16,14 @@ print(output_query) #String type data
 import requests
 from flask import Flask,render_template
 URL = "https://discover.search.hereapi.com/v1/discover"
-latitude = 25.0806903
-longitude = 55.1368619
-api_key = '<HERE API KEY>' # Acquire from developer.here.com
+latitude = 12.959111
+longitude = 77.732022
+api_key = 'HERE_API_KEY' # Acquire from developer.here.com
 limit = 5
 
 PARAMS = {
             'apikey':api_key,
-            'q':output_query,
+            'q':'burger',
             'limit': limit,
             'at':'{},{}'.format(latitude,longitude)
          } 
@@ -31,7 +31,7 @@ PARAMS = {
 # sending get request and saving the response as response object 
 r = requests.get(url = URL, params = PARAMS) 
 data = r.json()
-# print(data)
+#print(data)
 
 placeOne = data['items'][0]['title']
 placeOne_address =  data['items'][0]['address']['label']
