@@ -23,7 +23,7 @@ limit = 5
 
 PARAMS = {
             'apikey':api_key,
-            'q':'burger',
+            'q':output_query,
             'limit': limit,
             'at':'{},{}'.format(latitude,longitude)
          } 
