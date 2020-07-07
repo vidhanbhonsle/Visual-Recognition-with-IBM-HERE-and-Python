@@ -1,0 +1,4 @@
+  applications:
+  - name: AiMeetsLocation
+    random-route: true
+    memory: 128M
