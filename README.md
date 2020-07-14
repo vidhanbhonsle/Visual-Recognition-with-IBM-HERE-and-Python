@@ -107,7 +107,7 @@ When logging in make sure to login to [one of the following IBM Cloud Foundry En
     random-route: true
     memory: 128M
 ```
-8. Making sure that you are in the ```VisualRec-CloudFoundry``` enter the command 
+8. Making sure that you are in the ```VisualRec-CloudFoundry```  directory enter the command 
 ```bash
 cf push
 ```
