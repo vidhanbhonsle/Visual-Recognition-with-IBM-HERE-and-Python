@@ -25,6 +25,7 @@ visual_recognition = VisualRecognitionV3(
     version='2018-03-19',
     iam_apikey='IBM_API_KEY')
 ...
+
 api_key = 'HERE_API_KEY' # Acquire from developer.here.com
 ```
 
