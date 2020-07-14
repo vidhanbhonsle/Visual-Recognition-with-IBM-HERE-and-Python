@@ -3,9 +3,9 @@ from watson_developer_cloud import VisualRecognitionV3
 
 visual_recognition = VisualRecognitionV3(
     version='2018-03-19',
-    iam_apikey='rnuSPbKv9bEw-shZgVbP9mMcipTUsK6_O-jPc0zu9jGg')
+    iam_apikey='IBM_API_KEY')
 
-with open('./test.jpg', 'rb') as images_file:
+with open('./pizza.jpg', 'rb') as images_file:
     classes = visual_recognition.classify(images_file,threshold='0.6',classifier_ids='food').get_result()
 #print(json.dumps(classes, indent=2))
 
@@ -20,7 +20,7 @@ port = int(os.getenv("PORT"))
 URL = "https://discover.search.hereapi.com/v1/discover"
 latitude = 12.959111
 longitude = 77.732022
-api_key = 'APIKEY' # Acquire from developer.here.com
+api_key = 'HERE_API_KEY' # Acquire from developer.here.com
 limit = 5
 
 PARAMS = {
