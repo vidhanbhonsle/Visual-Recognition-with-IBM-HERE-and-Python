@@ -18,21 +18,30 @@ To implement this code to a location of your choice
 ```bash
 git clone https://github.com/vidhanbhonsle/Visual-Recognition-with-IBM-HERE-and-Python
 ```
+2. Add your IBM Cloud Visual Recogntion API Key and Here Maps API Key in ```test.py```
 
-2. And scroll to the variables where the ```latitude``` and ```longitude``` are set and replace it with the latitude and longitude of your desired locaiton.
+```python
+visual_recognition = VisualRecognitionV3(
+    version='2018-03-19',
+    iam_apikey='IBM_API_KEY')
+...
+api_key = 'HERE_API_KEY' # Acquire from developer.here.com
+```
+
+3. And scroll to the variables where the ```latitude``` and ```longitude``` are set and replace it with the latitude and longitude of your desired locaiton.
 ```python
 latitude = 12.959111
 longitude = 77.732022
 ```
-3. Open a terminal and ```cd``` into the application directory and export the ```FLASK_APP``` variable
+4. Open a terminal and ```cd``` into the application directory and export the ```FLASK_APP``` variable
 ```bash
 export FLASK_APP=test.py
 ```
 
-4. You can now run the application by running ```flask run``` in the terminal.
+5. You can now run the application by running ```flask run``` in the terminal.
 
 
-5. ***OPTIONAL*** If you would like to assess another food item just add it to the project folder and in the ```test.py``` file replace the filename ```pizza.jpg``` with the filename of your picture.
+6. ***OPTIONAL*** If you would like to assess another food item just add it to the project folder and in the ```test.py``` file replace the filename ```pizza.jpg``` with the filename of your picture.
 
 ```python
 with open('./pizza.jpg', 'rb') as images_file:
