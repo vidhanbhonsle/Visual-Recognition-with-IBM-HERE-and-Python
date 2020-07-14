@@ -85,7 +85,7 @@ ibmcloud target --cf
 ```
 
 3. Install the Cloud Clundry CLI and follow the instructions
-[CLoud Foundry CLI Installation](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html)
+[Cloud Foundry CLI Installation](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html)
 
 4. Login to the CF CLI
 ```bash
