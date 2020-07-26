@@ -1,4 +1,4 @@
   applications:
-  - name: allocation
+  - name: AIMeetsLoc
     random-route: true
     memory: 128M
