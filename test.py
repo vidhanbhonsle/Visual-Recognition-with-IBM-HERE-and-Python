@@ -8,14 +8,14 @@ visual_recognition = VisualRecognitionV3(
     version='2018-03-19',
     authenticator=authenticator)
 
-visual_recognition.set_service_url('IBM_URL') 
+visual_recognition.set_service_url('IBM_SERVICE_URL') 
 
 with open('./pizza.jpg', 'rb') as images_file: 
     classes = visual_recognition.classify(images_file=images_file,threshold='0.6',classifier_ids='food').get_result()
 
 #print(json.dumps(classes, indent=2))	
 
-output_query = classes['images'][0]['classifiers'][0]['classes'][1]['class']
+output_query = classes['images'][0]['classifiers'][0]['classes'][0]['class']
 #print(output_query)
 latitude = 12.959111
 longitude = 77.732022

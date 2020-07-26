@@ -1,2 +1,2 @@
 Flask
-watson_developer_cloud
+ibm_watson
