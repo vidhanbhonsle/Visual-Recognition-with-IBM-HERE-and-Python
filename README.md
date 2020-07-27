@@ -7,7 +7,7 @@ Ever wondered on how we can add AI when it comes to location based services? In 
 
 ## Architecture 
 
-![Arch](/images/ArchLocal.png)
+![Arch](/images/AI_Location_Sol_Arch.png)
 
 1. User passes an image in the python code
 1. As we are using the visual recognition service there is a out of the box food model which we are going to use and it detects the name of the food which we have passed
