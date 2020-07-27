@@ -24,28 +24,37 @@ git clone https://github.com/vidhanbhonsle/Visual-Recognition-with-IBM-HERE-and-
 2. Add your IBM Cloud Visual Recogntion API Key and Here Maps API Key in ```test.py```
 
 ```python
+authenticator = IAMAuthenticator('IBM_API_KEY')
+
 visual_recognition = VisualRecognitionV3(
     version='2018-03-19',
-    iam_apikey='IBM_API_KEY')
-...
+    authenticator=authenticator)
 
-api_key = 'HERE_API_KEY' # Acquire from developer.here.com
+visual_recognition.set_service_url('IBM_SERVICE_URL') 
+
+```
+3. Enter the templates directory and add the HERE maps API key obtained from developer.here.com and add it to the ```JS_API_KEY``` variable
+
+```javascript
+	 var platform = new H.service.Platform({
+            apikey: "JS_API_KEY" //HERE MAPS API KEY   
+        });
 ```
 
-3. And scroll to the variables where the ```latitude``` and ```longitude``` are set and replace it with the latitude and longitude of your desired locaiton.
+4. And scroll to the variables where the ```latitude``` and ```longitude``` are set and replace it with the latitude and longitude of your desired locaiton.
 ```python
 latitude = 12.959111
 longitude = 77.732022
 ```
-4. Open a terminal and ```cd``` into the application directory and export the ```FLASK_APP``` variable
+5. Open a terminal and ```cd``` into the application directory and export the ```FLASK_APP``` variable
 ```bash
 export FLASK_APP=test.py
 ```
 
-5. You can now run the application by running ```flask run``` in the terminal.
+6. You can now run the application by running ```flask run``` in the terminal.
 
 
-6. ***OPTIONAL*** If you would like to assess another food item just add it to the project folder and in the ```test.py``` file replace the filename ```pizza.jpg``` with the filename of your picture.
+7. ***OPTIONAL*** If you would like to assess another food item just add it to the project folder and in the ```test.py``` file replace the filename ```pizza.jpg``` with the filename of your picture.
 
 ```python
 with open('./pizza.jpg', 'rb') as images_file:
@@ -54,6 +63,8 @@ with open('./pizza.jpg', 'rb') as images_file:
 Save the file and re-run ```flask run``` to see the changes.
 
 ## Cloud Foundry Deployment 
+
+To host your application online you can also deploy the same application on IBM Cloud's Coud Foundry.
 
 ### Cloud Foundry Architecture 
 
@@ -84,33 +95,18 @@ ibmcloud login
 ibmcloud target --cf 
 ```
 
-3. Install the Cloud Clundry CLI and follow the instructions
-[Cloud Foundry CLI Installation](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html)
-
-4. Login to the CF CLI
-```bash
-cf login
-```
-When logging in make sure to login to [one of the following IBM Cloud Foundry Endpoints](https://cloud.ibm.com/docs/cloud-foundry-public?topic=cloud-foundry-public-endpoints)
-
-5. Deploy the Cloud Foundry Service on IBM Cloud and select the ```python``` runtime
-
-![Cloud_CF](/images/CF_Cloud.png)
-![Cloud_Run](/images/CF_Runtime.png)
-
-6. ````cd```` into the ```VisualRec-CloudFoundry```
-
-7. Edit the ```manifest.yaml``` and change then ```- name: <your app name>``` to the same name you have entered on IBM Cloud when creating the Cloud Foundry IBM Cloud Service
+3. Edit the ```manifest.yaml``` and change then ```- name: <your app name>``` to the same name you have entered on IBM Cloud when creating the Cloud Foundry IBM Cloud Service
 ```yml
   applications:
-  - name: allocation
+  - name: allocation 
     random-route: true
     memory: 128M
 ```
-8. Making sure that you are in the ```VisualRec-CloudFoundry```  directory enter the command 
+
+8. Once you have changed the .yml file you can start with pushing your application, making sure that you are in the ```VisualRec-CloudFoundry```  directory enter the command 
 ```bash
-cf push
+ibmcloud app push
 ```
-And your application will start to deploy on Cloud Foundry and you will be able to access it.
+And your application will start to deploy on Cloud Foundry and you will be able to access it by seeing the output of the application route on your terminal and also can be access through .
 
 ***NOTICE*** You can also make changes to the application if you like as stated in the [local deployment](###Local-Deployment) section within the ```VisualRec-CloudFoundry``` directory and run ```cf psuh``` to see your changes.
