@@ -31,8 +31,8 @@ visual_recognition = VisualRecognitionV3(
     authenticator=authenticator)
 
 visual_recognition.set_service_url('IBM_SERVICE_URL') 
-
 ```
+
 3. Enter the templates directory and add the HERE maps API key obtained from developer.here.com and add it to the ```JS_API_KEY``` variable
 
 ```javascript
